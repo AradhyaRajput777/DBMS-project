@@ -1,0 +1,102 @@
+{% include 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1c1c1c, #3a3a3a);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .confirm-card {
+            width: 550px;
+            margin: 70px auto;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .confirm-card h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            color: #cddaff;
+            font-weight: 600;
+        }
+
+        .value {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: #4da3ff;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            margin-top: 25px;
+            background: #1763ff;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 17px;
+            font-weight: 500;
+            color: white;
+            border: none;
+            transition: 0.25s;
+        }
+
+        .back-btn:hover {
+            background: #0d4acc;
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 16px rgba(23, 99, 255, 0.4);
+        }
+
+        hr {
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="confirm-card">
+
+    <h2>🎟 Booking Confirmed!</h2>
+
+    <p class="value"><span class="label">Movie:</span> {{ show[1] }}</p>
+    <p class="value"><span class="label">Show Time:</span> {{ show[2] }}</p>
+
+    <hr>
+
+    <p class="value"><span class="label">Selected Seats:</span> {{ seats|join(', ') }}</p>
+
+    <p class="value"><span class="label">Price per Ticket:</span> ₹{{ price_per_ticket }}</p>
+
+    <p class="highlight">Total Price: ₹{{ total_price }}</p>
+
+    <a href="/movies">
+        <button class="back-btn">Back to Movies</button>
+    </a>
+
+</div>
+
+</body>
+</html>

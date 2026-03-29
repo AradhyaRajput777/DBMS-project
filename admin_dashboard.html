@@ -1,0 +1,122 @@
+{% include 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1c1c1c, #3a3a3a);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+            transition: 0.25s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+        }
+
+        .count {
+            font-size: 45px;
+            font-weight: 700;
+            color: #4da3ff;
+        }
+
+        .label {
+            font-size: 18px;
+            margin-top: 8px;
+            color: #dfe6ff;
+        }
+
+        .admin-actions a {
+            text-decoration: none;
+            color: white;
+            background: #1763ff;
+            padding: 12px 25px;
+            border-radius: 10px;
+            margin: 10px;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.25s;
+        }
+
+        .admin-actions a:hover {
+            background: #0d4acc;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(23, 99, 255, 0.4);
+        }
+
+        .actions-box {
+            margin-top: 40px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.10);
+            backdrop-filter: blur(8px);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="count">{{ movie_count }}</div>
+                <div class="label">Movies</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="count">{{ theatre_count }}</div>
+                <div class="label">Theatres</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="count">{{ show_count }}</div>
+                <div class="label">Shows</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="count">{{ booking_count }}</div>
+                <div class="label">Bookings</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions-box admin-actions">
+        <a href="/admin/movies">Manage Movies</a>
+        <a href="/admin/theatres">Manage Theatres</a>
+        <a href="/admin/shows">Manage Shows</a>
+    </div>
+
+</div>
+
+</body>
+</html>

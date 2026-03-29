@@ -1,0 +1,45 @@
+<style>
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-nav .nav-title {
+        font-weight: 600;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .glass-nav .nav-user {
+        color: #eee;
+        font-weight: 500;
+    }
+
+    .glass-nav .logout-btn {
+        background: #ff4d4d;
+        border: none;
+        font-weight: 500;
+        color: white;
+        border-radius: 8px;
+        padding: 5px 14px;
+        transition: 0.25s;
+    }
+
+    .glass-nav .logout-btn:hover {
+        background: #cc0000;
+        transform: translateY(-2px);
+    }
+</style>
+
+<nav class="navbar glass-nav px-4 py-3">
+    <a class="nav-title" href="/movies">🎬 Movie Booking</a>
+
+    {% if session.get('user_id') %}
+        <div class="d-flex align-items-center">
+            <span class="me-3 nav-user">Hello, {{ session.get('name') }}</span>
+            <a href="/logout" class="logout-btn btn btn-sm">Logout</a>
+        </div>
+    {% endif %}
+</nav>
